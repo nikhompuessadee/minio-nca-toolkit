@@ -1,46 +1,78 @@
-# MinIO + NCA Toolkit Deployment
+# 🧰 MinIO + NCA Toolkit Deployment
 
-This stack includes:
+This project provides a complete Docker Compose setup for:
 
-- **MinIO**: S3-compatible object storage
-- **NCA Toolkit**: No-Code Architect tool
-- **Cloudflare Tunnel**: Secure public access
+- 📦 **MinIO** – An S3-compatible object storage server
+- 🧱 **NCA Toolkit** – No-Code Architect Toolkit (uses S3 backend)
+- ☁️ **Cloudflare Tunnel** – For secure public access
 
-## 🚀 How to Start
+---
 
-```bash
+## 🔧 Setup Instructions
+
+1. Clone the repository
+
+git clone https://github.com/yourusername/your-repo.git
+cd minio-nca-toolkit
+
+2. Create your configuration file
+   cp docker-compose.yml.example docker-compose.yml
+
+3. Edit the docker-compose.yml
+   Replace the following placeholders:
+
+Placeholder	Description
+MINIO_ROOT_PASSWORD	Root password for MinIO Console
+TUNNEL_TOKEN	Cloudflare Tunnel token
+API_KEY	Key for NCA Toolkit authentication
+S3_ACCESS_KEY	Access key for S3 (MinIO)
+S3_SECRET_KEY	Secret key for S3 (MinIO)
+
+🚀 Start the stack
 docker-compose up -d
 
+Verify containers are running:
+docker ps
 
-🔐 Default Credentials
+🌐 Access
+Service	URL/Port	Notes
+MinIO Console	http://localhost:4000	S3 UI
+MinIO API	http://localhost:4001	S3-compatible endpoint
+NCA Toolkit	http://localhost:8080	API and Admin Dashboard
+Cloudflare	Your public tunnel URL	Check logs/dashboard
+
+🔐 Default Credentials (Example)
 MinIO:
-
-URL: http://localhost:4000
-
-User: admin
-
-Pass: changme
+  - Username: admin
+  - Password: changeme
 
 NCA Toolkit:
+  - API_KEY: changeme
+⚠️ Do not use these values in production. Always replace with secure secrets.
 
-URL: http://localhost:8080
+📁 Storage & Volumes
+./volume/ → MinIO bucket data (S3)
 
-Uses MinIO internally via S3-like credentials
+/data/nca-toolkit/logs → Toolkit logs
 
-⚙ Notes
-Uses named nca-network for internal communication
+/data/nca-toolkit/config → Toolkit configuration
 
-Mounts persistent volumes under /data/nca-toolkit
+/data/nca-toolkit/temp → Temp storage
 
-Access to MinIO Console via port 4000, API via 4001
+📦 Docker Network
+All services use a dedicated Docker bridge network named nca-network to communicate securely.
 
-⚙ Notes
-No persistent volumes needed
+🛡 Recommendations
+✅ Add docker-compose.yml to .gitignore
 
-Based on CPU-optimized Kokoro FastAPI image
+✅ Keep real secrets in environment variables or secrets manager
 
-🗂 Data Persistence
-Docker volume baserow_data used for persistent storage
+✅ Backup /volume and /data/nca-toolkit/ periodically
 
-⚙ Notes
-BASEROW_PUBLIC_URL is set for tunnel domain
+📚 Resources
+MinIO Docs
+
+NCA Toolkit DockerHub
+
+Cloudflare Tunnel Docs
+
