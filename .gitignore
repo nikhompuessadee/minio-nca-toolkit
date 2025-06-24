@@ -1,0 +1,8 @@
+# Ignore sensitive or environment-specific files
+*.env
+docker-compose.yml
+volume/
+data/
+logs/
+config/
+temp/
