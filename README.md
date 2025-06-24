@@ -10,16 +10,18 @@ This project provides a complete Docker Compose setup for:
 
 ## 🔧 Setup Instructions
 
-1. Clone the repository
+### 1. Clone the repository
 
+```bash
 git clone https://github.com/yourusername/your-repo.git
 cd minio-nca-toolkit
-
 2. Create your configuration file
-   cp docker-compose.yml.example docker-compose.yml
-
+bash
+Copy
+Edit
+cp docker-compose.yml.example docker-compose.yml
 3. Edit the docker-compose.yml
-   Replace the following placeholders:
+Replace the following placeholders:
 
 Placeholder	Description
 MINIO_ROOT_PASSWORD	Root password for MinIO Console
@@ -29,11 +31,16 @@ S3_ACCESS_KEY	Access key for S3 (MinIO)
 S3_SECRET_KEY	Secret key for S3 (MinIO)
 
 🚀 Start the stack
+bash
+Copy
+Edit
 docker-compose up -d
-
 Verify containers are running:
-docker ps
 
+bash
+Copy
+Edit
+docker ps
 🌐 Access
 Service	URL/Port	Notes
 MinIO Console	http://localhost:4000	S3 UI
@@ -42,6 +49,9 @@ NCA Toolkit	http://localhost:8080	API and Admin Dashboard
 Cloudflare	Your public tunnel URL	Check logs/dashboard
 
 🔐 Default Credentials (Example)
+text
+Copy
+Edit
 MinIO:
   - Username: admin
   - Password: changeme
