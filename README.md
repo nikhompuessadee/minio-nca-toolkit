@@ -14,7 +14,7 @@
 เริ่มต้นด้วยการ Clone โค้ดโปรเจกต์นี้ลงมาที่เครื่องของคุณ:
 
 ```bash
-git clone [https://github.com/nikhompuessadee/minio-nca-toolkit.git](https://github.com/nikhompuessadee/minio-nca-toolkit.git)
+git clone https://github.com/nikhompuessadee/minio-nca-toolkit.git
 cd minio-nca-toolkit
 
 2. Create your configuration file
