@@ -16,12 +16,12 @@
 ```bash
 git clone [https://github.com/nikhompuessadee/minio-nca-toolkit.git](https://github.com/nikhompuessadee/minio-nca-toolkit.git)
 cd minio-nca-toolkit
+
 2. Create your configuration file
 คัดลอกไฟล์ docker-compose.yml.example เพื่อสร้างไฟล์ .yml สำหรับการตั้งค่าของคุณ:
 
-Bash
-
 cp docker-compose.yml.example docker-compose.yml
+
 3. Edit the docker-compose.yml
 เปิดไฟล์ docker-compose.yml ที่คุณสร้างขึ้นมา และแทนที่ค่า Placeholder ต่อไปนี้ด้วยข้อมูลของคุณ:
 
@@ -33,17 +33,16 @@ S3_ACCESS_KEY	Access key สำหรับ S3 (MinIO)
 S3_SECRET_KEY	Secret key สำหรับ S3 (MinIO)
 
 Export to Sheets
+
 4. Start the stack
 หลังจากตั้งค่าเรียบร้อยแล้ว ให้เริ่มบริการทั้งหมดด้วย Docker Compose:
-
-Bash
 
 docker-compose up -d
 คุณสามารถตรวจสอบสถานะของ Container ที่กำลังรันอยู่ได้ด้วยคำสั่ง:
 
-Bash
-
 docker ps
+
+
 🌐 Access
 นี่คือ URL/Port สำหรับเข้าถึงแต่ละบริการ:
 
